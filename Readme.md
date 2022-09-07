@@ -15,16 +15,20 @@ The framework can be extended to detect additional or different sounds to optimi
 
 ### Creating datasets
 - Python 3.7
-- [Praat](https://www.praat.org/) as a command line program
+- [Praat](https://www.praat.org/) as a command line program.
 
 ## Setup
 - Create a virtual environment and install the required packages from requirements.txt.
 
 ### Detecting sounds
-- Todo
+- Execute `src/predict.py` with `-f path/to/audio_file -m path/to/model`.
+- Pre-trained models are included with this repository.
 
 ### Training the model
-- Todo
+- Change parameters in `src/config.py` if necessary.
+- Execute `src/train.py`.
+- Execute `src/validate.py`.
+- The trained models can be found in the dataset directory under `models`.
 
 ### Creating datasets
 `python src/create_dataset_script.py -m train -f urls_train.txt -d dataset`
@@ -35,4 +39,13 @@ The resulting data is saved to the dataset directory.
 
 The annotation of the spectrogram has to be done by hand with Praat.
 A tutorial for annotating with Praat can be found [here](https://www.youtube.com/watch?v=zm5fqASjtWQ).
+The default tiers should be replaced by a single tier named `sound`.
+The tier should only contain the label 'Moan', wherever a moan is present on the audio track.
 The annotated TextGrid file has to be saved to the asset directory.
+
+## Pre-trained dataset
+The data set on which the accompanying paper was trained is included in the repository as a release.
+The data is split into two subsets, `train` and `validation`. 
+Both sets have an `images` and an `annotations` folder.
+The `models` folder contains all pre-trained models created from the data set.
+Finally, in `log.csv`, the mapping of UUIDs to URLs the data was extracted from can be found.
