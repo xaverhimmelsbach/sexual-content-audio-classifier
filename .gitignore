@@ -3,3 +3,10 @@
 
 # Virtual environment
 venv
+
+# PyCache
+__pycache__
+
+# Datasets
+dataset
+test
