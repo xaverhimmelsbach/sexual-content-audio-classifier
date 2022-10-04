@@ -6,12 +6,13 @@ import contextlib
 from PIL import Image
 from imageai.Detection.Custom import CustomObjectDetection
 from src.create_dataset import mel_spectrogram
-from src.config import DATASET_DIR, ASSETS_DIR, MIN_PREDICTION_PROBABILITY
+from src.config import DATASET_DIR, ASSETS_DIR
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Detect objects in images")
     parser.add_argument("-f", "--file", help="Audio file to detect in", required=True)
     parser.add_argument("-m", "--model", help="Model to use", required=True)
+    parser.add_argument("-p", "--probability", help="Minimal prediction probability", default=50, type=int)
     args = parser.parse_args()
 
     file_uuid = str(uuid.uuid4())
@@ -37,7 +38,7 @@ if __name__ == "__main__":
     detector.loadModel()
     detections = detector.detectObjectsFromImage(input_image=f"{ASSETS_DIR}/{file_uuid}.png",
                                                  output_image_path=f"{ASSETS_DIR}/{file_uuid}_out.png",
-                                                 minimum_percentage_probability=MIN_PREDICTION_PROBABILITY)
+                                                 minimum_percentage_probability=args.probability)
 
     # Write detections to CSV
     with open(f'../assets/{file_uuid}_out.csv', 'w') as out_file:

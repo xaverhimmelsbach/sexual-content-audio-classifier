@@ -3,4 +3,3 @@ CLASSES = ["Moan"]
 ASSETS_DIR = "../assets"
 DATASET_DIR = "../dataset"
 DONE_FILE = "done"
-MIN_PREDICTION_PROBABILITY = 50
