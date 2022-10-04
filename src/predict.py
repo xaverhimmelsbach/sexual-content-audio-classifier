@@ -55,3 +55,5 @@ if __name__ == "__main__":
                 'start': detection['box_points'][0] / max_width * duration,
                 'end': detection['box_points'][2] / max_width * duration
             })
+
+    print(f"Finished detections for UUID {file_uuid}")
