@@ -4,6 +4,9 @@ The primary application is to detect sexual content in videos by listening for m
 
 The framework can be extended to detect additional or different sounds to optimize sexual content detection.
 
+It was created in the course of the term paper "Supporting the Detection of Sexual Content in Videos by Listening for
+Characteristic Sounds", which can also be found in this repository.
+
 ## Requirements
 
 ### Detecting Sounds
